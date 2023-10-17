@@ -75,7 +75,7 @@ let vowelBonusScorer = function(word) {
 
 function scrabbleScorer(word) { 
    
-   word = word.toUpperCase();
+   word = word.toLowerCase();
    letterPoints = 0;
 
    for (let i = 0; i < word.length; i++) {
@@ -143,16 +143,16 @@ function scorerPrompt() {
 
 function transform(pointStr) {
 
-   let newPointStruct = {};
+   let scoreByWord = {};
       for (let key in pointStr) {
          let letterItem = pointStr[key];
          for (let i = 0; i < letterItem.length; i++){
             //  let letterItem = words[key][i];
             //  letterItem = letterItem.toLowerCase();
-            newPointStruct[letterItem[i].toUpperCase()] = Number(key);
+            scoreByWord[letterItem[i].toLowerCase()] = Number(key);
     }
   }
-  return newPointStruct;
+  return scoreByWord;
 
 };
 
